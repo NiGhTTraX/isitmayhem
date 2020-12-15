@@ -19,10 +19,12 @@ export const getStaticProps: GetStaticProps<TodayProps> = async () => {
 
 const IndexPage = ({ mayhem }: TodayProps) => {
   return (
-    <Head>
-      <title>Is it Total Mayhem today?</title>
+    <>
+      <Head>
+        <title>Is it Total Mayhem today?</title>
+      </Head>
       <Mayhem mayhem={mayhem} />
-    </Head>
+    </>
   );
 };
 
