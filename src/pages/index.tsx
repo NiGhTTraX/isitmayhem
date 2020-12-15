@@ -1,25 +1,13 @@
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
-import { GetStaticProps } from "next";
 import { Mayhem, TodayProps } from "../components/Mayhem";
-
-export type Mode = {
-  id: number;
-  name: string;
-};
-
-export type TodayModes = {
-  modes: Record<string, Mode>;
-};
+import { getTodaysModes, isItMayhem } from "../services/modes";
 
 export const getStaticProps: GetStaticProps<TodayProps> = async () => {
-  const todayModes = await fetch(
-    "https://overwatcharcade.today/api/overwatch/today"
-  ).then((r) => (r.json() as unknown) as TodayModes);
+  const todayModes = await getTodaysModes();
 
-  const mayhem = !!Object.values(todayModes.modes).find((mode) =>
-    mode.name.toLowerCase().includes("mayhem")
-  );
+  const mayhem = isItMayhem(todayModes);
 
   return {
     props: {
