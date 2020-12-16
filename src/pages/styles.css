@@ -1,0 +1,20 @@
+@font-face {
+    font-family: overwatch;
+    src: url("/overwatch.woff");
+}
+@font-face {
+    font-family: overwatch-italic;
+    src: url("/overwatch-italic.woff");
+}
+* {
+    box-sizing: border-box;
+}
+h1,
+h2,
+h3 {
+    font-family: overwatch, serif;
+}
+h4,
+h5 {
+    font-family: overwatch-italic, serif;
+}

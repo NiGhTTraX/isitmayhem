@@ -17,15 +17,13 @@ export const getStaticProps: GetStaticProps<TodayProps> = async () => {
   };
 };
 
-const IndexPage = ({ mayhem }: TodayProps) => {
-  return (
-    <>
-      <Head>
-        <title>Is it Total Mayhem today?</title>
-      </Head>
-      <Mayhem mayhem={mayhem} />
-    </>
-  );
-};
+const IndexPage = ({ mayhem }: TodayProps) => (
+  <>
+    <Head>
+      <title>Is it Total Mayhem now?</title>
+    </Head>
+    <Mayhem mayhem={mayhem} />
+  </>
+);
 
 export default IndexPage;
