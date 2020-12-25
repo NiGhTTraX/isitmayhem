@@ -11,13 +11,13 @@ export type TodayModes = {
   modes: Record<string, Mode>;
 };
 
-export const getTodaysModes = async () => {
+export const getTodaysModes = async (): Promise<TodayModes> => {
   const response = await fetch(
     "https://overwatcharcade.today/api/overwatch/today"
   );
 
   if (!response.ok) {
-    throw new Error(`${response.status}: ${await response.text()}`);
+    return { modes: {} };
   }
 
   return ((await response.json()) as unknown) as TodayModes;
