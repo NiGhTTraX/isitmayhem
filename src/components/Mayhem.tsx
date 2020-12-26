@@ -6,7 +6,13 @@ export type TodayProps = { mayhem?: boolean; error?: Error };
 
 const MayhemCard = ({ error, mayhem }: TodayProps) => {
   if (error) {
-    return <Card heroSrc="/mayhem-error.png" title="Something went wrong :(" />;
+    return (
+      <Card
+        heroSrc="/mayhem-error.png"
+        title="Something went wrong :("
+        subtitle="Please try again later"
+      />
+    );
   }
 
   if (mayhem) {

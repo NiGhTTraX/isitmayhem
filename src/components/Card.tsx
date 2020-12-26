@@ -4,9 +4,10 @@ import Image from "next/image";
 type Props = {
   heroSrc: `/${string}`;
   title: string;
+  subtitle?: string;
 };
 
-export const Card = ({ heroSrc, title }: Props) => (
+export const Card = ({ heroSrc, title, subtitle }: Props) => (
   <div className="card">
     <div className="hero">
       <div className="img">
@@ -15,6 +16,7 @@ export const Card = ({ heroSrc, title }: Props) => (
     </div>
     <div className="title">
       <h1>{title}</h1>
+      {subtitle && <h5>{subtitle}</h5>}
     </div>
     <style jsx>{`
       .img {
@@ -38,6 +40,10 @@ export const Card = ({ heroSrc, title }: Props) => (
         background-clip: border-box;
         height: 100px;
         padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
 
       @media (max-width: 600px) {

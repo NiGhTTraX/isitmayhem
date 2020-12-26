@@ -15,9 +15,11 @@
 h1,
 h2,
 h3 {
-    font-family: overwatch, serif;
+    font-family: overwatch-italic, serif;
+    margin: 10px;
 }
 h4,
 h5 {
-    font-family: overwatch-italic, serif;
+    font-family: overwatch, serif;
+    margin: 5px;
 }
