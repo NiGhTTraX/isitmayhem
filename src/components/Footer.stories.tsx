@@ -6,4 +6,4 @@ export default {
   component: Footer,
 };
 
-export const Basic = () => <Footer />;
+export const Basic = () => <Footer updatedAt={1608940817000} />;

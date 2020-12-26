@@ -1,14 +1,17 @@
 import React from "react";
 
-export const Footer = () => (
+type Props = { updatedAt: number };
+
+export const Footer = ({ updatedAt }: Props) => (
   <>
     <footer className="footer">
-      <p>
-        Game content and materials are trademarks and copyrights of their
-        respective publisher and its licensors. all rights reserved.
+      <p className="updated">
+        <strong>Updated at</strong>: {new Date(updatedAt).toString()}
       </p>
       <p>
-        Overwatch arcade mode tracking is provided by{" "}
+        Game content and materials are trademarks and copyrights of their
+        respective publisher and its licensors. all rights reserved. Overwatch
+        arcade mode tracking is provided by{" "}
         <a
           rel="noreferrer"
           target="_blank"
@@ -31,6 +34,9 @@ export const Footer = () => (
       p {
         margin: 0;
         font-size: 14px;
+      }
+      .updated {
+        margin-bottom: 10px;
       }
       a {
         font-weight: bold;

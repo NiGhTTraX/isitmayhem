@@ -7,11 +7,20 @@ export type Mode = {
   name: string;
 };
 
+type Modes = Record<string, Mode>;
+
 export type TodayModes = {
-  modes: Record<string, Mode>;
+  modes: Modes;
+  updatedAt: number;
 };
 
-export const getTodaysModes = async () => {
+type ApiResponse = {
+  modes: Modes;
+  // eslint-disable-next-line camelcase
+  created_at: string;
+};
+
+export const getTodaysModes = async (): Promise<TodayModes> => {
   const response = await fetch(
     "https://overwatcharcade.today/api/overwatch/today"
   );
@@ -20,8 +29,13 @@ export const getTodaysModes = async () => {
     throw new Error(`${response.status}: ${await response.text()}`);
   }
 
-  return ((await response.json()) as unknown) as TodayModes;
+  const data = (await response.json()) as ApiResponse;
+
+  return {
+    modes: data.modes,
+    updatedAt: new Date(data.created_at).getTime(),
+  };
 };
 
-export const isItMayhem = (todayModes: TodayModes) =>
-  !!Object.values(todayModes.modes).find((mode) => mode.id === ModeId.MAYHEM);
+export const isItMayhem = (modes: Modes) =>
+  !!Object.values(modes).find((mode) => mode.id === ModeId.MAYHEM);
