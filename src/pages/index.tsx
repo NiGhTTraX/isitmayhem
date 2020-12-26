@@ -26,6 +26,30 @@ const IndexPage = ({ mayhem }: TodayProps) => (
       />
     </Head>
     <Mayhem mayhem={mayhem} />
+    <style global jsx>{`
+      @font-face {
+        font-family: overwatch;
+        src: url("/overwatch.woff");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: overwatch-italic;
+        src: url("/overwatch-italic.woff");
+        font-display: swap;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: overwatch, serif;
+      }
+      h4,
+      h5 {
+        font-family: overwatch-italic, serif;
+      }
+    `}</style>
   </>
 );
 
