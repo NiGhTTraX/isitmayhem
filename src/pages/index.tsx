@@ -18,6 +18,8 @@ const IndexPage = ({ mayhem }: TodayProps) => (
   <>
     <Head>
       <title>Is it Total Mayhem now?</title>
+      <link rel="preload" href="/overwatch.woff" as="font" />
+      <link rel="preload" href="/overwatch-italic.woff" as="font" />
     </Head>
     <Mayhem mayhem={mayhem} />
   </>
