@@ -3,7 +3,7 @@
 
 ![](media/logo.png)
 
-Track the best Overwatch Arcade Mode, Total Mayhem!
+Track the best [Overwatch](https://playoverwatch.com) Arcade Mode, Total Mayhem!
 
 https://isitmayhem.now.sh
 
