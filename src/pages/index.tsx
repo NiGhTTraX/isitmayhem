@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import React from "react";
+import { Footer } from "../components/Footer";
 import { Mayhem, TodayProps } from "../components/Mayhem";
 import { getTodaysModes, isItMayhem } from "../services/modes";
 
@@ -36,6 +37,7 @@ const IndexPage = ({ mayhem }: TodayProps) => (
       />
     </Head>
     <Mayhem mayhem={mayhem} />
+    <Footer />
     <style global jsx>{`
       @font-face {
         font-family: overwatch;
