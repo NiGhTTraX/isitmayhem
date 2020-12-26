@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 type Props = {
   heroSrc: `/${string}`;
@@ -8,7 +9,9 @@ type Props = {
 export const Card = ({ heroSrc, title }: Props) => (
   <div className="card">
     <div className="hero">
-      <img src={heroSrc} className="img" alt={title} />
+      <div className="img">
+        <Image src={heroSrc} layout="fill" alt={title} />
+      </div>
     </div>
     <div className="title">
       <h1>{title}</h1>
@@ -16,6 +19,8 @@ export const Card = ({ heroSrc, title }: Props) => (
     <style jsx>{`
       .img {
         height: 300px;
+        width: 300px;
+        position: relative;
       }
       .card {
         display: inline-block;
@@ -36,6 +41,7 @@ export const Card = ({ heroSrc, title }: Props) => (
       @media (max-width: 600px) {
         .img {
           height: 150px;
+          width: 150px;
         }
         .hero {
           padding: 20px 40px;
