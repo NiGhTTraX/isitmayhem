@@ -25,7 +25,7 @@ export const Card = ({ heroSrc, title }: Props) => (
       .card {
         display: inline-block;
         border-radius: 8px;
-        border: 2px solid #fff;
+        border: 4px solid #fff;
         overflow: hidden;
       }
       .hero {
