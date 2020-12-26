@@ -32,6 +32,7 @@ export const Mayhem = ({ mayhem, error }: TodayProps) => (
           quality={80}
           objectFit="cover"
           alt="Total Mayhem"
+          unoptimized={process.env.NODE_ENV !== "production"}
         />
       </div>
       <MayhemCard error={error} mayhem={mayhem} />

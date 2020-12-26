@@ -11,7 +11,12 @@ export const Card = ({ heroSrc, title, subtitle }: Props) => (
   <div className="card">
     <div className="hero">
       <div className="img">
-        <Image src={heroSrc} layout="fill" alt="Total Mayhem" />
+        <Image
+          src={heroSrc}
+          layout="fill"
+          alt="Total Mayhem"
+          unoptimized={process.env.NODE_ENV !== "production"}
+        />
       </div>
     </div>
     <div className="title">
