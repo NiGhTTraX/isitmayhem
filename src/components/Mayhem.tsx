@@ -13,6 +13,7 @@ export const Mayhem = ({ mayhem }: TodayProps) => (
           layout="fill"
           quality={80}
           objectFit="cover"
+          alt="Total Mayhem"
         />
       </div>
       {mayhem ? (
