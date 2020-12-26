@@ -51,6 +51,7 @@ const IndexPage = ({ mayhem }: TodayProps) => (
       }
       * {
         box-sizing: border-box;
+        color: #222;
       }
       h1,
       h2,
