@@ -16,8 +16,6 @@ export const getServerSideProps: GetServerSideProps<TodayProps> = async () => {
   } catch (error) {
     return {
       props: {
-        mayhem: false,
-        updatedAt: -1,
         error,
       },
     };

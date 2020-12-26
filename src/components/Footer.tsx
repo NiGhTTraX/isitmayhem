@@ -1,13 +1,15 @@
 import React from "react";
 
-type Props = { updatedAt: number };
+type Props = { updatedAt?: number };
 
 export const Footer = ({ updatedAt }: Props) => (
   <>
     <footer className="footer">
-      <p className="updated">
-        <strong>Updated at</strong>: {new Date(updatedAt).toString()}
-      </p>
+      {updatedAt && (
+        <p className="updated">
+          <strong>Updated at</strong>: {new Date(updatedAt).toString()}
+        </p>
+      )}
       <p>
         Game content and materials are trademarks and copyrights of their
         respective publisher and its licensors. all rights reserved. Overwatch
