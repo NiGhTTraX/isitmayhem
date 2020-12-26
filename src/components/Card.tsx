@@ -33,6 +33,9 @@ export const Card = ({ heroSrc, title, subtitle }: Props) => (
       .hero {
         padding: 30px 100px;
         background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .title {
         text-align: center;
