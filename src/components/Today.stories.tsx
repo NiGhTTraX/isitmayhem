@@ -9,3 +9,5 @@ export default {
 export const Yes = () => <Mayhem mayhem />;
 
 export const No = () => <Mayhem mayhem={false} />;
+
+export const WithError = () => <Mayhem error={new Error("oops")} />;

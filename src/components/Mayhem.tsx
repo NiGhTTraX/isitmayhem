@@ -2,9 +2,21 @@ import React from "react";
 import { Card } from "./Card";
 import Image from "next/image";
 
-export type TodayProps = { mayhem: boolean };
+export type TodayProps = { mayhem?: boolean; error?: Error };
 
-export const Mayhem = ({ mayhem }: TodayProps) => (
+const MayhemCard = ({ error, mayhem }: TodayProps) => {
+  if (error) {
+    return <Card heroSrc="/mayhem-error.png" title="Something went wrong :(" />;
+  }
+
+  if (mayhem) {
+    return <Card heroSrc="/mayhem-happy.png" title="It's Total Mayhem!" />;
+  }
+
+  return <Card heroSrc="/mayhem-sad.png" title="No Total Mayhem today :(" />;
+};
+
+export const Mayhem = ({ mayhem, error }: TodayProps) => (
   <>
     <div className="mayhem">
       <div className="bg">
@@ -16,11 +28,7 @@ export const Mayhem = ({ mayhem }: TodayProps) => (
           alt="Total Mayhem"
         />
       </div>
-      {mayhem ? (
-        <Card heroSrc="/mayhem-happy.png" title="It's Total Mayhem!" />
-      ) : (
-        <Card heroSrc="/mayhem-sad.png" title="No Total Mayhem today :(" />
-      )}
+      <MayhemCard error={error} mayhem={mayhem} />
     </div>
     <style jsx global>{`
       body {

@@ -5,19 +5,29 @@ import { Footer } from "../components/Footer";
 import { Mayhem } from "../components/Mayhem";
 import { getTodaysModes, isItMayhem } from "../services/modes";
 
-type Props = { mayhem: boolean; updatedAt: number };
+type Props = { mayhem: boolean; updatedAt: number; error?: Error };
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const { modes, updatedAt } = await getTodaysModes();
+  try {
+    const { modes, updatedAt } = await getTodaysModes();
 
-  const mayhem = isItMayhem(modes);
+    const mayhem = isItMayhem(modes);
 
-  return {
-    props: { mayhem, updatedAt },
-  };
+    return {
+      props: { mayhem, updatedAt },
+    };
+  } catch (error) {
+    return {
+      props: {
+        mayhem: false,
+        updatedAt: -1,
+        error,
+      },
+    };
+  }
 };
 
-const IndexPage = ({ mayhem, updatedAt }: Props) => (
+const IndexPage = ({ mayhem, updatedAt, error }: Props) => (
   <>
     <Head>
       <title>Is it Total Mayhem now?</title>
@@ -38,7 +48,7 @@ const IndexPage = ({ mayhem, updatedAt }: Props) => (
         content="Tracks the Total Mayhem Arcade mode in the game Overwatch"
       />
     </Head>
-    <Mayhem mayhem={mayhem} />
+    <Mayhem mayhem={mayhem} error={error} />
     <Footer updatedAt={updatedAt} />
   </>
 );
