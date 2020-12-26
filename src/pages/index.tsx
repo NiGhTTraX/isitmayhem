@@ -1,19 +1,16 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import React from "react";
 import { Mayhem, TodayProps } from "../components/Mayhem";
 import { getTodaysModes, isItMayhem } from "../services/modes";
 
-export const getStaticProps: GetStaticProps<TodayProps> = async () => {
+export const getServerSideProps: GetServerSideProps<TodayProps> = async () => {
   const todayModes = await getTodaysModes();
 
   const mayhem = isItMayhem(todayModes);
 
   return {
-    props: {
-      mayhem,
-    },
-    revalidate: 100,
+    props: { mayhem },
   };
 };
 
