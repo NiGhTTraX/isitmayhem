@@ -12,8 +12,8 @@ export const Footer = ({ updatedAt }: Props) => (
       )}
       <p>
         Game content and materials are trademarks and copyrights of their
-        respective publisher and its licensors. all rights reserved. Overwatch
-        arcade mode tracking is provided by{" "}
+        respective publisher and its licensors. all rights reserved. Arcade mode
+        tracking is provided by{" "}
         <a
           rel="noreferrer"
           target="_blank"
