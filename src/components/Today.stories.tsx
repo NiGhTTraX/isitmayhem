@@ -1,13 +1,15 @@
 import React from "react";
-import { Mayhem } from "./Mayhem";
+import { Today } from "./Today";
 
 export default {
-  title: "Mayhem",
-  component: Mayhem,
+  title: "Index",
+  component: Today,
 };
 
-export const Yes = () => <Mayhem mayhem />;
+export const Yes = () => <Today mayhem updatedAt={1608940817000} />;
 
-export const No = () => <Mayhem mayhem={false} />;
+export const No = () => <Today mayhem={false} updatedAt={1608940817000} />;
 
-export const WithError = () => <Mayhem error={new Error("oops")} />;
+export const Oops = () => (
+  <Today mayhem={false} updatedAt={1608940817000} error={new Error("oops")} />
+);

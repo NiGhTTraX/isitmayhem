@@ -1,13 +1,10 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import React from "react";
-import { Footer } from "../components/Footer";
-import { Mayhem } from "../components/Mayhem";
+import { TodayProps, Today } from "../components/Today";
 import { getTodaysModes, isItMayhem } from "../services/modes";
 
-type Props = { mayhem: boolean; updatedAt: number; error?: Error };
-
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<TodayProps> = async () => {
   try {
     const { modes, updatedAt } = await getTodaysModes();
 
@@ -27,7 +24,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   }
 };
 
-const IndexPage = ({ mayhem, updatedAt, error }: Props) => (
+const IndexPage = ({ mayhem, updatedAt, error }: TodayProps) => (
   <>
     <Head>
       <title>Is it Total Mayhem now?</title>
@@ -49,8 +46,7 @@ const IndexPage = ({ mayhem, updatedAt, error }: Props) => (
       />
       <link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
-    <Mayhem mayhem={mayhem} error={error} />
-    <Footer updatedAt={updatedAt} />
+    <Today mayhem={mayhem} error={error} updatedAt={updatedAt} />
   </>
 );
 
