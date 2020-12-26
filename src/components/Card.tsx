@@ -10,7 +10,7 @@ export const Card = ({ heroSrc, title }: Props) => (
   <div className="card">
     <div className="hero">
       <div className="img">
-        <Image src={heroSrc} layout="fill" alt={title} />
+        <Image src={heroSrc} layout="fill" alt="Total Mayhem" />
       </div>
     </div>
     <div className="title">
