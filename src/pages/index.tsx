@@ -28,12 +28,6 @@ const IndexPage = ({ mayhem, updatedAt, error }: TodayProps) => (
       <title>Is it Total Mayhem now?</title>
       <link
         rel="preload"
-        href="/overwatch.woff"
-        as="font"
-        crossOrigin="anonymous"
-      />
-      <link
-        rel="preload"
         href="/overwatch-italic.woff"
         as="font"
         crossOrigin="anonymous"
