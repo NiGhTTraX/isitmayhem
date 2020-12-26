@@ -11,5 +11,5 @@ https://isitmayhem.now.sh
 
 ## Credits
 
-This project used the API provided by https://github.com/Quintenps/OverwatchArcade2.
+This project uses the API provided by https://github.com/Quintenps/OverwatchArcade2.
 
