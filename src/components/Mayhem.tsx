@@ -1,35 +1,31 @@
 import React from "react";
 import { Card } from "./Card";
+import Image from "next/image";
 
 export type TodayProps = { mayhem: boolean };
 
 export const Mayhem = ({ mayhem }: TodayProps) => (
   <>
     <div className="mayhem">
+      <div className="bg">
+        <Image
+          src={mayhem ? "/mayhem-happy-bg.png" : "/mayhem-sad-bg.png"}
+          layout="fill"
+          quality={80}
+          objectFit="cover"
+        />
+      </div>
       {mayhem ? (
-        <Card heroSrc="/mayhem-happy.png" title="Yes" />
+        <Card heroSrc="/mayhem-happy.png" title="It's Total Mayhem!" />
       ) : (
-        <Card heroSrc="/mayhem-sad.png" title="No" />
+        <Card heroSrc="/mayhem-sad.png" title="No Total Mayhem today :(" />
       )}
     </div>
     <style jsx global>{`
       body {
         width: 100%;
         height: 100%;
-        background: url(${mayhem
-          ? "/mayhem-happy-bg.png"
-          : "/mayhem-sad-bg.png"});
-        background-repeat: no-repeat;
-        background-position: 50% calc(50% - 65px);
-        background-attachment: fixed;
         background-color: ${mayhem ? "#ee9a29" : "#ededed"};
-      }
-
-      @media (max-width: 600px) {
-        body {
-          background-position: 50% calc(50% - 60px);
-          background-size: 2000px;
-        }
       }
     `}</style>
     <style jsx>{`
@@ -42,6 +38,17 @@ export const Mayhem = ({ mayhem }: TodayProps) => (
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+
+      .bg {
+        position: fixed;
+        overflow: hidden;
+        left: 0;
+        right: 0;
+        // Compensate for the height of the title below the image.
+        top: -100px;
+        bottom: 0;
+        z-index: -1;
       }
     `}</style>
   </>

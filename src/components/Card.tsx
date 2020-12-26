@@ -44,7 +44,7 @@ export const Card = ({ heroSrc, title }: Props) => (
           width: 150px;
         }
         .hero {
-          padding: 20px 40px;
+          padding: 30px 50px;
         }
       }
     `}</style>
