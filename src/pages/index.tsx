@@ -47,6 +47,7 @@ const IndexPage = ({ mayhem, updatedAt, error }: Props) => (
         name="description"
         content="Tracks the Total Mayhem Arcade mode in the game Overwatch"
       />
+      <link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
     <Mayhem mayhem={mayhem} error={error} />
     <Footer updatedAt={updatedAt} />
