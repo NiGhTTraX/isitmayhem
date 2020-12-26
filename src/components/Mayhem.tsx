@@ -40,7 +40,7 @@ export const Mayhem = ({ mayhem, error }: TodayProps) => (
       body {
         width: 100%;
         height: 100%;
-        background-color: ${mayhem ? "#ee9a29" : "#ededed"};
+        background-color: ${mayhem ? "#ee9a29" : "#969696"};
       }
     `}</style>
     <style jsx>{`
