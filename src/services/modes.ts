@@ -1,9 +1,4 @@
-enum ModeId {
-  MAYHEM = 71,
-}
-
 export type Mode = {
-  id: ModeId;
   name: string;
 };
 
@@ -38,4 +33,4 @@ export const getTodaysModes = async (): Promise<TodayModes> => {
 };
 
 export const isItMayhem = (modes: Modes) =>
-  !!Object.values(modes).find((mode) => mode.id === ModeId.MAYHEM);
+  !!Object.values(modes).find((mode) => mode.name === "Total Mayhem");
