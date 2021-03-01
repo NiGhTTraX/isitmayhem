@@ -1,17 +1,18 @@
 import React from "react";
 
 type Props = {
-  heroSrc: `/${string}`;
+  status: "mayhem-error" | "mayhem-happy" | "mayhem-sad";
   title: string;
   subtitle?: string;
 };
 
-export const Card = ({ heroSrc, title, subtitle }: Props) => (
+export const Card = ({ status, title, subtitle }: Props) => (
   <div className="card">
     <div className="hero">
       <img
         className="img"
-        src={heroSrc}
+        src={`${status}-600.png`}
+        srcSet={`${status}-600.png 600w, ${status}-300.png 300w, ${status}-150.png 150w`}
         width={300}
         height={300}
         sizes="(max-width: 600px) 150px, 300px"

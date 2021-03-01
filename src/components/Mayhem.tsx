@@ -7,7 +7,7 @@ const MayhemCard = ({ error, mayhem }: TodayProps) => {
   if (error) {
     return (
       <Card
-        heroSrc="/mayhem-error.png"
+        status="mayhem-error"
         title="Something went wrong :("
         subtitle="Please try again later"
       />
@@ -15,10 +15,10 @@ const MayhemCard = ({ error, mayhem }: TodayProps) => {
   }
 
   if (mayhem) {
-    return <Card heroSrc="/mayhem-happy.png" title="It's Total Mayhem!" />;
+    return <Card status="mayhem-happy" title="It's Total Mayhem!" />;
   }
 
-  return <Card heroSrc="/mayhem-sad.png" title="No Total Mayhem today :(" />;
+  return <Card status="mayhem-sad" title="No Total Mayhem today :(" />;
 };
 
 export const Mayhem = ({ mayhem, error }: TodayProps) => (
