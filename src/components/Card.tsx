@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 type Props = {
   heroSrc: `/${string}`;
@@ -10,14 +9,7 @@ type Props = {
 export const Card = ({ heroSrc, title, subtitle }: Props) => (
   <div className="card">
     <div className="hero">
-      <div className="img">
-        <Image
-          src={heroSrc}
-          layout="fill"
-          alt="Total Mayhem"
-          unoptimized={process.env.NODE_ENV !== "production"}
-        />
-      </div>
+      <img className="img" src={heroSrc} alt="Total Mayhem" />
     </div>
     <div className="title">
       <h1>{title}</h1>

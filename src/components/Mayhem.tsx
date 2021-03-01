@@ -1,6 +1,5 @@
 import React from "react";
 import { Card } from "./Card";
-import Image from "next/image";
 
 export type TodayProps = { mayhem?: boolean; error?: Error };
 
@@ -25,16 +24,6 @@ const MayhemCard = ({ error, mayhem }: TodayProps) => {
 export const Mayhem = ({ mayhem, error }: TodayProps) => (
   <>
     <div className="mayhem">
-      <div className="bg">
-        <Image
-          src={mayhem ? "/mayhem-happy-bg.png" : "/mayhem-sad-bg.png"}
-          layout="fill"
-          quality={80}
-          objectFit="cover"
-          alt="Total Mayhem"
-          unoptimized={process.env.NODE_ENV !== "production"}
-        />
-      </div>
       <MayhemCard error={error} mayhem={mayhem} />
     </div>
     <style jsx global>{`
@@ -55,16 +44,17 @@ export const Mayhem = ({ mayhem, error }: TodayProps) => (
         align-items: center;
         justify-content: center;
       }
-
-      .bg {
-        position: fixed;
-        overflow: hidden;
-        left: 0;
-        right: 0;
-        // Compensate for the height of the title below the image.
-        top: -100px;
-        bottom: 0;
-        z-index: -1;
+    `}</style>
+    <style jsx global>{`
+      body {
+        background: url(${mayhem
+          ? "/mayhem-happy-bg.png"
+          : "/mayhem-sad-bg.png"});
+        background-repeat: no-repeat;
+        background-position: 50%
+          // Compensate for the height of the title below the image.
+          calc(50% - 100px / 2);
+        background-attachment: fixed;
       }
     `}</style>
   </>
