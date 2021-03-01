@@ -9,7 +9,14 @@ type Props = {
 export const Card = ({ heroSrc, title, subtitle }: Props) => (
   <div className="card">
     <div className="hero">
-      <img className="img" src={heroSrc} alt="Total Mayhem" />
+      <img
+        className="img"
+        src={heroSrc}
+        width={300}
+        height={300}
+        sizes="(max-width: 600px) 150px, 300px"
+        alt="Total Mayhem"
+      />
     </div>
     <div className="title">
       <h1>{title}</h1>
