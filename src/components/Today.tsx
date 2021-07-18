@@ -5,7 +5,7 @@ import { Mayhem } from "./Mayhem";
 export type TodayProps = {
   mayhem?: boolean;
   updatedAt?: number;
-  error?: Error;
+  error?: string;
 };
 
 export const Today = ({ mayhem, updatedAt, error }: TodayProps) => (

@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "./Card";
 
-export type TodayProps = { mayhem?: boolean; error?: Error };
+export type TodayProps = { mayhem?: boolean; error?: string };
 
 const MayhemCard = ({ error, mayhem }: TodayProps) => {
   if (error) {
